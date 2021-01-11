@@ -21,6 +21,8 @@ class patient(models.Model):
     address = models.CharField(max_length = 100)
     mobile_no = models.CharField(max_length = 15)
     gender = models.CharField(max_length = 10)
+    def __str__(self):
+         return self.name
 
     
     @property
@@ -55,7 +57,8 @@ class doctor(models.Model):
     specialization = models.CharField(max_length = 30)
 
     rating = models.IntegerField(default=0)
-
+    def __str__(self):
+         return self.name
 
 
 
@@ -69,7 +72,8 @@ class diseaseinfo(models.Model):
     symptomsname = ArrayField(models.CharField(max_length=200))
     confidence = models.DecimalField(max_digits=5, decimal_places=2)
     consultdoctor = models.CharField(max_length = 200)
-
+    def __str__(self):
+        return self.diseasename
 
 
 class consultation(models.Model):
@@ -80,7 +84,7 @@ class consultation(models.Model):
     consultation_date = models.DateField()
     status = models.CharField(max_length = 20)
 
-
+    
 
 
 
